@@ -4,10 +4,9 @@
 */
 
 import { abs, sum, transpose2D } from "../deps.ts"
+import { formatInput, type FormattedInput } from "./funcdefs.ts"
 import inputA from "./input_a.ts"
 
-
-type FormattedInput = Array<[left_id: number, right_id: number]>
 
 const findSortedDistance = (input: FormattedInput): number => {
 	const distances = abs(input.map(([left_id, right_id]) => {
@@ -29,13 +28,7 @@ const findDistance = (input: FormattedInput): number => {
 }
 
 export const run = (input: string): number => {
-	input = input
-		.replaceAll(/[ \h]+/g, ",")
-		.split("\n")
-		.map((row: string) => { return `[ ${row} ]` })
-		.join(",")
-	const input_array = JSON.parse(`[ ${input} ]`) as FormattedInput
-	return findDistance(input_array)
+	return findDistance(formatInput(input))
 }
 
 console.log(run(inputA))
