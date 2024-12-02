@@ -1,0 +1,108 @@
+{
+	"name": "aoc-2024",
+	"version": "2024.12.1",
+	"description": "solutions to advent of code 2024, in typescript (deno runtime).",
+	"author": "Omar Azmi",
+	"license": "Anti-Competition License",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/omar-azmi/aoc-2024.git"
+	},
+	"bugs": {
+		"url": "https://github.com/omar-azmi/aoc-2024/issues"
+	},
+	"exports": {
+		".": "./src/mod.ts",
+		"./loader": "./src/loader.ts",
+		"./fs": "./src/fs.ts",
+		"./funcdefs": "./src/funcdefs.ts",
+		"./typedefs": "./src/typedefs.ts"
+	},
+	"publish": {
+		"exclude": [
+			"./.vscode/",
+			"./.github/",
+			"./examples/",
+			"./test/",
+			"./clean.ts"
+		]
+	},
+	"test": {
+		"include": [
+			"./test/",
+			"./src/mod.ts"
+		]
+	},
+	"fmt": {
+		"useTabs": true,
+		"semiColons": false,
+		"singleQuote": false,
+		"lineWidth": 800,
+		"proseWrap": "preserve",
+		"include": [
+			"./src/",
+			"./day/",
+			"./test/",
+			"./*.md",
+			"./*.json"
+		]
+	},
+	"compilerOptions": {
+		"lib": [
+			"esnext",
+			"dom",
+			"deno.ns"
+		],
+		"strict": true
+	},
+	"packageJson": {
+		"dependencies": {},
+		"devDependencies": {
+			"typescript": "^5.0.0",
+			"esbuild": "^0.23.1",
+			"typedoc": "^0.26.4",
+			"typedoc-plugin-missing-exports": "^3.0.0",
+			"typedoc-plugin-mermaid": "^1.12.0"
+		},
+		"keywords": [
+			"html-bundler",
+			"esbuild-plugin",
+			"esbuild",
+			"build-tools",
+			"build-scripts",
+			"bundler",
+			"bundle-script",
+			"typescript"
+		]
+	},
+	"buildDist": {
+		"dir": "./dist/",
+		"log": "verbose",
+		"minify": "syntax",
+		"passes": "1",
+		"split": true,
+		"esbuild": {
+			"chunkNames": "chunks/[hash]",
+			"external": []
+		}
+	},
+	"buildDocs": {
+		"dir": "./docs/",
+		"log": "verbose"
+	},
+	"buildNpm": {
+		"dir": "./npm/",
+		"log": "verbose",
+		"install": "npm"
+	},
+	"tasks": {
+		"example-1": "deno run -A \"./examples/1_html/build.ts\"",
+		"build-dist": "deno run -A \"jsr:@oazmi/build-tools@0.2.2/cli/dist\" --config=\"./deno.json\"",
+		"build-docs": "deno run -A \"jsr:@oazmi/build-tools@0.2.2/cli/docs\" --config=\"./deno.json\"",
+		"build-npm": "deno run -A \"jsr:@oazmi/build-tools@0.2.2/cli/npm\" --config=\"./deno.json\"",
+		"build-npm-dist": "cd \"./npm/\" && npm run build-dist",
+		"clean": "deno run -A \"./clean.ts\"",
+		"test": "deno test -A",
+		"publish-jsr": "deno publish"
+	}
+}
