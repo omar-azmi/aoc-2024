@@ -1,4 +1,4 @@
-/** question link: [day1-part2](https://adventofcode.com/2024/day/2#part2)
+/** question link: [day2-part2](https://adventofcode.com/2024/day/2#part2)
  * 
  * this time around, the problem requires some dynamic-inspection/lookaheads in each element of a report.
  * an easy way to solve it is by:

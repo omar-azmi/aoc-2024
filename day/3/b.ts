@@ -1,4 +1,4 @@
-/** question link: [day1-part2](https://adventofcode.com/2024/day/1#part2)
+/** question link: [day3-part2](https://adventofcode.com/2024/day/1#part2)
  * 
  * @module
 */
